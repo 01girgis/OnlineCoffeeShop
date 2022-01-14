@@ -9,12 +9,16 @@ import FluentKit
 
 struct ProductCreation:Migration{
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return
+        //add schema & its Fields
+        return database.schema("products")
+            .id()
+            .field("name", .string , .required)
+            .field("price", .string , .required)
+            .field("description", .string)
+            .create()
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return
+        return database.schema("products").delete()
     }
-    
-    
 }
