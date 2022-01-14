@@ -6,5 +6,5 @@ func routes(_ app: Application) throws {
         return "up!"
     }
 
-  //  try app.register(collection: TodoController())
+    try app.register(collection: ProductController())
 }

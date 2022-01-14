@@ -16,7 +16,7 @@ struct ProductController:RouteCollection{
     }
     
     //Get Request Function
-    func getMethod(req:Request) -> EventLoopFuture<[Product]>{
+    func getMethod(req:Request) throws -> EventLoopFuture<[Product]>{
         return Product.query(on: req.db).all()
     }
 }
