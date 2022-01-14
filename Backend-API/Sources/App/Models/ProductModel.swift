@@ -11,6 +11,30 @@ import Vapor
 //Base Model Class
 final class Product: Model,Content{
     //schema select
-    let schema = "products"
+    static let schema = "products"
     
+    //fields
+    @ID(key: .id)
+    var id:UUID?
+    
+    @Field (key: "name")
+    var name:String
+    
+    @Field (key: "price")
+    var price:Int
+    
+    @OptionalField(key: "description")
+    var description: String?
+    
+    //Class Constructor
+    init() {
+        
+    }
+    
+    init(id:UUID? = nil,name:String ,price:Int ,description:String){
+        self.id = id
+        self.name = name
+        self.price = price
+        self.description =  description
+    }
 }
