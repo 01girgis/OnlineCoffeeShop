@@ -11,7 +11,7 @@ import Vapor
 //Base Model Class
 final class Product: Model,Content{
     //schema select
-    static let schema = "products"
+    static let schema = "product"
     
     //fields
     @ID(key: .id)
@@ -21,7 +21,7 @@ final class Product: Model,Content{
     var name:String
     
     @Field (key: "price")
-    var price:Int
+    var price:Float
     
     @OptionalField(key: "description")
     var description: String?
@@ -31,7 +31,7 @@ final class Product: Model,Content{
         
     }
     
-    init(id:UUID? = nil,name:String ,price:Int ,description:String){
+    init(id:UUID? = nil,name:String ,price:Float ,description:String){
         self.id = id
         self.name = name
         self.price = price

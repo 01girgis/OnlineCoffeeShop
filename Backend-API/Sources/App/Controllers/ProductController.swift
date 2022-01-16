@@ -9,7 +9,7 @@ import Vapor
 //Database Processes
 struct ProductController:RouteCollection{
     func boot(routes: RoutesBuilder) throws {
-        let dataTable = routes.grouped("products")
+        let dataTable = routes.grouped("product")
         
         //Get Request
         dataTable.get(use: getMethod)
