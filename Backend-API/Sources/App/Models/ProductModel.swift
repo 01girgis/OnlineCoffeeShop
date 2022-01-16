@@ -11,7 +11,7 @@ import Vapor
 //Base Model Class
 final class Product: Model,Content{
     //schema select
-    static let schema = "product"
+    static let schema = "products"
     
     //fields
     @ID(key: .id)

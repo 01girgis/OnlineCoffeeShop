@@ -10,7 +10,7 @@ import FluentKit
 struct ProductCreation:Migration{
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         //add schema & its Fields
-        return database.schema("product")
+        return database.schema("products")
             .id()
             .field("name", .string , .required)
             .field("price", .float , .required)
@@ -19,6 +19,6 @@ struct ProductCreation:Migration{
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("product").delete()
+        return database.schema("products").delete()
     }
 }
