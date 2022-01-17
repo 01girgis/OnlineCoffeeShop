@@ -16,3 +16,7 @@ Backend-API/Dockerfile
 Backend-API/Package.resolved
 Backend-API/Tests/AppTests/AppTests.swift
 Backend-API/docker-compose.yml
+
+#Frontend-Admin-App
+Frontend-Admin-App/Frontend-Admin-App.xcodeproj
+
