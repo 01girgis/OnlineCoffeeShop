@@ -1,13 +1,12 @@
 //
-//  ContentView.swift
-//  Frontend-Admin-App
 //
-//  Created by crus on 1/16/22.
 //
+//  Created by Romany GirGis, 2022.
+//  Copyright © 2022 All rights reserved
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProductView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
@@ -16,6 +15,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProductView()
     }
 }

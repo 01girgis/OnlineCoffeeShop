@@ -19,4 +19,7 @@ Backend-API/docker-compose.yml
 
 #Frontend-Admin-App
 Frontend-Admin-App/Frontend-Admin-App.xcodeproj
+Frontend-Admin-App/.DS_Store
+Frontend-Admin-App/Assets.xcassets
+Frontend-Admin-App/Preview Content
 
