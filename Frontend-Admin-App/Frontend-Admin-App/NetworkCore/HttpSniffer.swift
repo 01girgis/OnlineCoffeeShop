@@ -15,7 +15,7 @@ enum ApiErr:Error {
 // basic services class
 class HttpSniffer {
     
-    //Http Get Request
+    //Mark: --Http Get Request
     func FetchData<T:Codable> (url:URL) async throws -> [T] {
         
         //start Data exchange session
@@ -25,6 +25,13 @@ class HttpSniffer {
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             throw ApiErr.invalidRsponse
         }
+        
+        //Decode data from API
+        guard let myData = try? JSONDecoder().decode([T].self, from: data) else {
+            throw ApiErr.noDecoding
+        }
+        
+    return myData
     }
     
 }
