@@ -5,7 +5,3 @@
 //  Copyright © 2022 All rights reserved
 
 import Foundation
-
-class ProductListModelView: ObservableObject {
-    @Published var prods = [Product]()
-}
