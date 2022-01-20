@@ -8,9 +8,9 @@ import Foundation
 
 //enumeration of communication url
 enum FirstP{
-    static let url = ""
+    static let url = "http://127.0.0.1:8080"
 }
 
 enum EndP{
-    static let point = "/"
+    static let point = "/products"
 }
