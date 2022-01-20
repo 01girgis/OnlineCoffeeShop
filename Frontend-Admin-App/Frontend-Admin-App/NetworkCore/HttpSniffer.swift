@@ -15,6 +15,10 @@ enum ApiErr:Error {
 // basic services class
 class HttpSniffer {
     
+    //class singleton
+    private init (){}
+    static let sharedSniffer = HttpSniffer()
+    
     //Mark: --Http Get Request
     func FetchData<T:Codable> (url:URL) async throws -> [T] {
         
