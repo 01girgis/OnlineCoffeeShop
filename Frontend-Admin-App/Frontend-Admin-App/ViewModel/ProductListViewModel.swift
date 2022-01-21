@@ -18,5 +18,13 @@ class ProductListModelView: ObservableObject {
         guard let urlPath = URL(string: url) else {
             throw ApiErr.badUrl
         }
+        
+        //Data  Fetching to class model
+        let dataGet:[Product] = try await HttpSniffer.sharedSniffer.FetchData(url: urlPath)
+        
+        //add fetching method to main thread
+        DispatchQueue.main.async {
+            self.prods = dataGet
+        }
     }
 }
