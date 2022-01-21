@@ -7,9 +7,18 @@
 import SwiftUI
 
 struct ProductView: View {
+    @StateObject var vModel = ProductListModelView()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            
+        }
+        .onAppear{
+            //Fetch data on apllication open 
+            Task{
+                try await vModel.Fetching()
+            }
+        }
     }
 }
 
