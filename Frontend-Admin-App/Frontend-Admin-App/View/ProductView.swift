@@ -7,14 +7,27 @@
 import SwiftUI
 
 struct ProductView: View {
+    
+    //view model instance
     @StateObject var vModel = ProductListModelView()
     
     var body: some View {
         NavigationView{
-            
+            //data list
+            List{
+                //data fetching loop
+                ForEach(vModel.prods){ products in
+                    //get into cells as buttons
+                    Button{
+                        print("test")
+                    }label: {
+                        Text("ss")
+                    }
+                }
+            }
         }
         .onAppear{
-            //Fetch data on apllication open 
+            //Fetch data on apllication open
             Task{
                 try await vModel.Fetching()
             }
