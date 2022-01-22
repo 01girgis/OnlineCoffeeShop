@@ -21,8 +21,10 @@ struct ProductView: View {
                     Button{
                         print("test")
                     }label: {
+                        //set float type format of price 
+                        let reFormatFloat = String(format: "%.2f", products.price)
                 //print data fileds
-                Text("\(products.name) \nPrice: \(products.price) \nDescription: \(products.description ?? "no discription added")")
+                Text("\(products.name) \nPrice: \(reFormatFloat) \nDescription: \(products.description ?? "no discription added")")
                             .foregroundColor(.black)
                     }
                 }
