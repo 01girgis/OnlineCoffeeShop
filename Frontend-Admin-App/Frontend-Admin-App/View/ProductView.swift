@@ -17,14 +17,17 @@ struct ProductView: View {
             List{
                 //data fetching loop
                 ForEach(vModel.prods){ products in
-                    //get into cells as buttons
+                    //get data into cells as buttons
                     Button{
                         print("test")
                     }label: {
-                        Text("ss")
+                //print data fileds
+                Text("\(products.name) \nPrice: \(products.price) \nDescription: \(products.description ?? "no discription added")")
+                            .foregroundColor(.black)
                     }
                 }
             }
+            .navigationTitle(Text("Drinks List"))
         }
         .onAppear{
             //Fetch data on apllication open
