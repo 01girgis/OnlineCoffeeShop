@@ -21,7 +21,7 @@ struct ProductView: View {
                     Button{
                         print("test")
                     }label: {
-                        //set float type format of price 
+                        //set float type format of price
                         let reFormatFloat = String(format: "%.2f", products.price)
                 //print data fileds
                 Text("\(products.name) \nPrice: \(reFormatFloat) \nDescription: \(products.description ?? "no discription added")")
@@ -30,6 +30,15 @@ struct ProductView: View {
                 }
             }
             .navigationTitle(Text("Drinks List"))
+            .toolbar{
+                //Post request action button
+                Button{
+                    print("post")
+                }label: {
+                    Label("",systemImage: "plus.rectangle")
+                        .foregroundColor(.black)
+                }
+            }
         }
         .onAppear{
             //Fetch data on apllication open
