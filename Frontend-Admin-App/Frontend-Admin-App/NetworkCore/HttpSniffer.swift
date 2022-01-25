@@ -55,5 +55,14 @@ class HttpSniffer {
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = httpMethod
         urlReq.addValue(FormatTypes.JSON.rawValue, forHTTPHeaderField: FormatTypes.CONTENT.rawValue)
+        
+        //Encoding Data
+        urlReq.httpBody = try! JSONEncoder().encode(object)
+        let (_,response) = try await URLSession.shared.data(for: urlReq)
+        
+        //check Response
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw ApiErr.invalidRsponse
+        }
     }
 }
