@@ -43,9 +43,17 @@ struct ProductView: View {
         .onAppear{
             //Fetch data on apllication open
             Task{
-                try await vModel.Fetching()
+                do{
+                    try await vModel.Fetching()
+                    //errorCheck = "Drinks List"
+                }
+                //Error Check
+                catch{
+                    print("Error")
+                }
             }
         }
+        
     }
 }
 
