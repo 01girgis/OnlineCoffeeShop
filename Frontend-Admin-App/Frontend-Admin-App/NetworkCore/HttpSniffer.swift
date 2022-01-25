@@ -17,6 +17,12 @@ enum HttpMethodSelect{
     case GET , POST , PUT , DELETE
 }
 
+//Header Format Types
+enum FormatTypes:String{
+    case JSON = "application/json" ,
+         CONTENT = "Content-Type"
+}
+
 // basic services class
 class HttpSniffer {
     
@@ -45,6 +51,9 @@ class HttpSniffer {
     
     //MARK: - Post Request
     func PostReq<T:Codable> (to url:URL , object:T , httpMethod:String) async throws {
-        
+         //Prepare Url Request
+        var urlReq = URLRequest(url: url)
+        urlReq.httpMethod = httpMethod
+        urlReq.addValue(FormatTypes.JSON.rawValue, forHTTPHeaderField: FormatTypes.CONTENT.rawValue)
     }
 }
