@@ -12,6 +12,11 @@ enum ApiErr:Error {
     case  invalidRsponse , badUrl , noDecoding
 }
 
+//HTTP Methods Selection
+enum HttpMethodSelect{
+    case GET , POST , PUT , DELETE
+}
+
 // basic services class
 class HttpSniffer {
     
@@ -19,7 +24,7 @@ class HttpSniffer {
     private init (){}
     static let sharedSniffer = HttpSniffer()
     
-    //Mark: --Http Get Request
+    //MARK: --Http Get Request
     func FetchData<T:Codable> (url:URL) async throws -> [T] {
         
         //start Data exchange session
@@ -38,4 +43,8 @@ class HttpSniffer {
     return myData
     }
     
+    //MARK: - Post Request
+    func PostReq<T:Codable> (to url:URL , object:T , httpMethod:String) async throws {
+        
+    }
 }
