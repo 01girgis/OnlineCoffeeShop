@@ -40,6 +40,6 @@ class ProductListModelView: ObservableObject {
         let dataToSend = Product(id: nil, name: ToObject.name , price: ToObject.price, description: ToObject.description)
         
         //
-        try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: dataToSend, httpMethod: HttpMethodSelect.POST)
+        try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: dataToSend, httpMethod: HttpMethodSelect.POST.rawValue)
     }
 }

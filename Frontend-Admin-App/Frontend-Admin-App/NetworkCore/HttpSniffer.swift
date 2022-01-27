@@ -13,7 +13,7 @@ enum ApiErr:Error {
 }
 
 //HTTP Methods Selection
-enum HttpMethodSelect{
+enum HttpMethodSelect:String{
     case GET , POST , PUT , DELETE
 }
 
