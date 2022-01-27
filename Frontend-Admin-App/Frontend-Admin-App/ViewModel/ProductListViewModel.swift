@@ -27,4 +27,14 @@ class ProductListModelView: ObservableObject {
             self.prods = dataGet
         }
     }
+    
+    //Post Request in ViewModel
+    func SendData() async throws {
+        //Prepare
+        let url = FirstP.url + EndP.point
+        guard let urlPath = URL(string: url) else {
+            throw ApiErr.badUrl
+        }
+        
+    }
 }
