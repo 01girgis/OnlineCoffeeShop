@@ -10,7 +10,8 @@ struct ProductView: View {
     
     //view model instance
     @StateObject var vModel = ProductListModelView()
-    
+    @State var showAcionSheet:Bool = false
+
     var body: some View {
         NavigationView{
             //data list
@@ -33,11 +34,14 @@ struct ProductView: View {
             .toolbar{
                 //Post request action button
                 Button{
-                    print("post")
+                    showAcionSheet.toggle()
                 }label: {
                     Label("",systemImage: "plus.rectangle")
                         .foregroundColor(.black)
                 }
+            }
+            .sheet(isPresented: $showAcionSheet,onDismiss: {Task{try await vModel.Fetching()}}){
+                SheetActionsPresenter()
             }
         }
         .onAppear{
