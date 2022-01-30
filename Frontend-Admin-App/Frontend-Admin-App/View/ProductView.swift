@@ -20,6 +20,7 @@ struct ProductView: View {
                 ForEach(vModel.prods){ products in
                     //get data into cells as buttons
                     Button{
+                        showAcionSheet.toggle()
                         print("test")
                     }label: {
                         //set float type format of price
