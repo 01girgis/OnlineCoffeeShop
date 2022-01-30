@@ -36,5 +36,18 @@ struct ProductController:RouteCollection{
     func updateMethod(req:Request) throws -> EventLoopFuture<HTTPStatus> {
         //Decoding Data Object
         let updateData = try req.content.decode(Product.self)
+        return Product.find(updateData.id, on: req.db)
+        //error check
+            .unwrap(or: Abort(.notFound))
+        //Mapping New Data Entries
+            .flatMap{
+                $0.name = updateData.name
+                $0.price = updateData.price
+                $0.description = updateData.description
+                //Verify Http Return Request
+                return $0.update(on: req.db).transform(to: .ok)
+            }
     }
+    
+    
 }
