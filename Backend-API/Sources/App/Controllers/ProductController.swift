@@ -16,6 +16,9 @@ struct ProductController:RouteCollection{
         
         //Post Request
         dataTable.post(use: postMethod)
+        
+        //Put Request
+        dataTable.put(use: updateMethod)
     }
     
     //Get Request Function
@@ -23,9 +26,15 @@ struct ProductController:RouteCollection{
         return Product.query(on: req.db).all()
     }
     
+    //Post Request Function
     func postMethod(req:Request) throws -> EventLoopFuture<HTTPStatus>{
         let sendPost = try req.content.decode(Product.self)
         return sendPost.save(on: req.db).transform(to: .ok)
     }
     
+    //Put Request Function
+    func updateMethod(req:Request) throws -> EventLoopFuture<HTTPStatus> {
+        //Decoding Data Object
+        let updateData = try req.content.decode(Product.self)
+    }
 }
