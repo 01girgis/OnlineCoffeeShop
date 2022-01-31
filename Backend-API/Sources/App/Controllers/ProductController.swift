@@ -54,7 +54,13 @@ struct ProductController:RouteCollection{
     
     //Delete Request Function
     func deleteMethod(req:Request) throws -> EventLoopFuture<HTTPStatus> {
-        
+        //Get Access To Data Object ID for Processing the Request
+        Product.find(req.parameters.get("productID"), on: req.db)
+            .unwrap(or: Abort(.noContent))
+            .flatMap{
+                $0.delete(on: req.db)
+            }
+            .transform(to: .ok)
     }
     
 }
