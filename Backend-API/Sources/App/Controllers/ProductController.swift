@@ -21,7 +21,9 @@ struct ProductController:RouteCollection{
         dataTable.put(use: updateMethod)
         
         //Delete Request
-        dataTable.delete(use: deleteMethod)
+        dataTable.group(":productID") { prod in
+            prod.delete(use: deleteMethod)
+        }
     }
     
     //Get Request Function
