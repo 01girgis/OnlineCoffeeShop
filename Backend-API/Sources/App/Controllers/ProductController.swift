@@ -19,6 +19,9 @@ struct ProductController:RouteCollection{
         
         //Put Request
         dataTable.put(use: updateMethod)
+        
+        //Delete Request
+        dataTable.delete(use: deleteMethod)
     }
     
     //Get Request Function
@@ -49,5 +52,9 @@ struct ProductController:RouteCollection{
             }
     }
     
+    //Delete Request Function
+    func deleteMethod(req:Request) throws -> EventLoopFuture<HTTPStatus> {
+        
+    }
     
 }
