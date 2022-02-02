@@ -23,5 +23,15 @@ final class ActionSheetViewModel:ObservableObject{
         self.price = String(updateObject.price)
         self.description = updateObject.description ?? "no data"
     }
+   
+    func updateRequest() async throws{
+        //Prepare Communication Address
+        let url = FirstP.url + EndP.point
+        //Check Url Availability
+        guard let urlPath = URL(string: url) else {
+            throw ApiErr.badUrl
+        }
+    }
+    
     
 }
