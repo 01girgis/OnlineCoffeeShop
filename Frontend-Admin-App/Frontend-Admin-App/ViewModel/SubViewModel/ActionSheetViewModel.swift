@@ -14,5 +14,14 @@ final class ActionSheetViewModel:ObservableObject{
     @Published var price:String  = ""
     @Published var description:String = ""
     
+    //Class Constructor Set
+    init(){}
+    //Class Constructor on Update Request.
+    init(updateObject:Product) {
+        self.myID = updateObject.id
+        self.name = updateObject.name
+        self.price = String(updateObject.price)
+        self.description = updateObject.description ?? "no data"
+    }
     
 }
