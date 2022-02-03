@@ -7,6 +7,14 @@
 import SwiftUI
 
 struct SheetModalView: View {
+    /*Variables Initialization*/
+    //Main View Model
+    @StateObject var mainModel = ProductListModelView()
+    //SubView Model
+    @ObservedObject var sheetMod = ActionSheetViewModel()
+    //Enviromental Variables
+    @Environment(\.dismiss) var endView
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
