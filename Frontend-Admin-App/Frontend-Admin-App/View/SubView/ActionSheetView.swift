@@ -16,7 +16,25 @@ struct SheetModalView: View {
     @Environment(\.dismiss) var endView
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //Control Fields
+        TextField("Enter your Name",text: $sheetMod.name)
+            .padding()
+            .border(.black)
+            .cornerRadius(50)
+        TextField("Enter your Price",text: $sheetMod.price)
+            .padding()
+            .border(.black)
+            .cornerRadius(50)
+        TextField("Enter your Descrition",text: $sheetMod.description)
+            .padding()
+            .border(.black)
+            .cornerRadius(50)
+        //Action Button
+        Button{
+            print("Action")
+        }label: {
+            Text("Process")
+        }
     }
 }
 
