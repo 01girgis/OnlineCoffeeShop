@@ -9,23 +9,23 @@ import SwiftUI
 struct SheetModalView: View {
     /*Variables Initialization*/
     //Main View Model
-    @StateObject var mainModel = ProductListModelView()
+    @StateObject var mainVModel = ProductListModelView()
     //SubView Model
-    @ObservedObject var sheetMod = ActionSheetViewModel()
+    @ObservedObject var subVModel = ActionSheetViewModel()
     //Enviromental Variables
     @Environment(\.dismiss) var endView
     
     var body: some View {
         //Control Fields
-        TextField("Enter your Name",text: $sheetMod.name)
+        TextField("Enter your Name",text: $subVModel.name)
             .padding()
             .border(.black)
             .cornerRadius(50)
-        TextField("Enter your Price",text: $sheetMod.price)
+        TextField("Enter your Price",text: $subVModel.price)
             .padding()
             .border(.black)
             .cornerRadius(50)
-        TextField("Enter your Descrition",text: $sheetMod.description)
+        TextField("Enter your Descrition",text: $subVModel.description)
             .padding()
             .border(.black)
             .cornerRadius(50)
