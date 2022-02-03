@@ -29,8 +29,16 @@ struct SheetModalView: View {
             .padding()
             .border(.black)
             .cornerRadius(50)
+        
         //Action Button
         Button{
+            Task{
+                
+                //Perform Update Request
+                let updating = Product(id: subVModel.myID, name: subVModel.name, price: Float(subVModel.price) ?? 0, description: subVModel.description )
+                
+                try await mainVModel.updateRequest(objectForUpdate: updating)
+            }
             print("Action")
         }label: {
             Text("Process")
