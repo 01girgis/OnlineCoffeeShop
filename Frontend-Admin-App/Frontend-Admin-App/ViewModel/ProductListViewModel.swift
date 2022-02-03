@@ -42,4 +42,17 @@ class ProductListModelView: ObservableObject {
         //
         try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: dataToSend, httpMethod: HttpMethodSelect.POST.rawValue)
     }
+    
+    //Put Request Func
+    func updateRequest(objectForUpdate:Product) async throws{
+        //Prepare Communication Address
+        let url = FirstP.url + EndP.point
+        //Check Url Availability
+        guard let urlPath = URL(string: url) else {
+            throw ApiErr.badUrl
+        }
+        
+        //Process Request
+        try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: objectForUpdate, httpMethod: HttpMethodSelect.PUT.rawValue)
+    }
 }

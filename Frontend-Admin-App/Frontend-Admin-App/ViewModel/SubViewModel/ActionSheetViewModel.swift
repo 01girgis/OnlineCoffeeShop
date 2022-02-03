@@ -24,19 +24,7 @@ final class ActionSheetViewModel:ObservableObject{
         self.description = updateObject.description ?? "no data"
     }
    
-    func updateRequest() async throws{
-        //Prepare Communication Address
-        let url = FirstP.url + EndP.point
-        //Check Url Availability
-        guard let urlPath = URL(string: url) else {
-            throw ApiErr.badUrl
-        }
-        
-        //Pass Data for being Update
-        let dataUpdate = Product(id: myID, name: name, price: Float(price) ?? 0 , description: description)
-        //Process Request
-        try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: dataUpdate, httpMethod: HttpMethodSelect.PUT.rawValue)
-    }
+  
     
     
 }
