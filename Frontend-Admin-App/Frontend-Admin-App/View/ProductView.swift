@@ -11,7 +11,7 @@ struct ProductView: View {
     //view model instance
     @StateObject var vModel = ProductListModelView()
     @State var showAcionSheet:Bool = false
-
+    @State var updateActionSheet:Bool = false
     var body: some View {
         NavigationView{
             //data list
@@ -20,7 +20,8 @@ struct ProductView: View {
                 ForEach(vModel.prods){ products in
                     //get data into cells as buttons
                     Button{
-                        showAcionSheet.toggle()
+                       // showAcionSheet.toggle()
+                        updateActionSheet.toggle()
                         print("test")
                     }label: {
                         //set float type format of price
@@ -28,6 +29,10 @@ struct ProductView: View {
                 //print data fileds
                 Text("\(products.name) \nPrice: \(reFormatFloat) \nDescription: \(products.description ?? "no discription added")")
                             .foregroundColor(.black)
+                    }
+                    //
+                    .sheet(isPresented: $updateActionSheet){
+                        SheetModalView(subVModel: ActionSheetViewModel(updateObject: products))
                     }
                 }
             }
