@@ -38,6 +38,20 @@ struct SheetModalView: View {
                 self.subVModel.name = subVModel.name
                 self.subVModel.price = subVModel.price
                 self.subVModel.description = subVModel.description
+                
+                //Pass Request Data
+                let Posting = Product(id: self.subVModel.myID , name: self.subVModel.name, price: Float(self.subVModel.price) ?? 0, description: self.subVModel.description)
+                
+                //Rquest Task
+                Task{
+                    do{
+                        try await mainVModel.SendData(ToObject: Posting)
+                    }catch{
+                        print("Error on Posting")
+                    }
+                }
+                
+                //Debug Test
                 print("Post REq.")
                 return
             }
