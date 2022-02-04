@@ -34,6 +34,11 @@ struct SheetModalView: View {
         Button{
             /*Checking ID For Determination if Which Request To Process Put or Post*/
             guard subVModel.myID != nil else {
+                //Clear All Fileds if it was Post Req.
+                self.subVModel.name = subVModel.name
+                self.subVModel.price = subVModel.price
+                self.subVModel.description = subVModel.description
+                print("Post REq.")
                 return
             }
             //Task Session For Updating
