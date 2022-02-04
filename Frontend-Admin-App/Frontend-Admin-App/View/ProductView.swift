@@ -30,7 +30,8 @@ struct ProductView: View {
                 Text("\(products.name) \nPrice: \(reFormatFloat) \nDescription: \(products.description ?? "no discription added")")
                             .foregroundColor(.black)
                     }
-                    //
+                    
+                    //Update Sheet for Put Request.
                     .sheet(isPresented: $updateActionSheet){
                         SheetModalView(subVModel: ActionSheetViewModel(updateObject: products))
                     }

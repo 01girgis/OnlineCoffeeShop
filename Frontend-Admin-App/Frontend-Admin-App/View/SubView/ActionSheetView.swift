@@ -32,8 +32,12 @@ struct SheetModalView: View {
         
         //Action Button
         Button{
+            /*Checking ID For Determination if Which Request To Process Put or Post*/
+            guard subVModel.myID != nil else {
+                return
+            }
+            //Task Session For Updating
             Task{
-                
                 //Perform Update Request
                 let updating = Product(id: subVModel.myID, name: subVModel.name, price: Float(subVModel.price) ?? 0, description: subVModel.description )
                 
