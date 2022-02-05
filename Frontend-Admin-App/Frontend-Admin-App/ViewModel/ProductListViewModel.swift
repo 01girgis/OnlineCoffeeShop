@@ -28,6 +28,20 @@ class ProductListModelView: ObservableObject {
         }
     }
     
+    //Data Reload Func
+    func dataReload(){
+        Task{
+            do{
+                try await Fetching()
+                //errorCheck = "Drinks List"
+            }
+            //Error Check
+            catch{
+                print("Error")
+            }
+        }
+    }
+    
     //Post Request in ViewModel
     func SendData(ToObject:Product) async throws {
         //Prepare
