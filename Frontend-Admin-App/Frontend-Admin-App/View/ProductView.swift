@@ -10,7 +10,7 @@ struct ProductView: View {
     
     //view model instance
     @StateObject var vModel = ProductListModelView()
-    @State var postAcionSheet:Bool = false
+    @State var postActionSheet:Bool = false
     @State var updateActionSheet:Bool = false
     var body: some View {
         NavigationView{
@@ -32,7 +32,11 @@ struct ProductView: View {
                     }
                     
                     //Update Sheet for Put Request.
-                    .sheet(isPresented: $updateActionSheet){
+                    .sheet(isPresented: $updateActionSheet , onDismiss: {
+                        //Process data reload after Performing Request
+                        vModel.dataReload()
+                    }){
+                        //Update Request View
                         ActionSheetView(subVModel: ActionSheetViewModel(updateObject: products))
                     }
                 }
@@ -41,14 +45,18 @@ struct ProductView: View {
             .toolbar{
                 //Post request action button
                 Button{
-                    postAcionSheet.toggle()
+                    postActionSheet.toggle()
                 }label: {
                     Label("",systemImage: "plus.rectangle")
                         .foregroundColor(.black)
                 }
             }
-            .sheet(isPresented: $postAcionSheet,onDismiss: {Task{try await vModel.Fetching()}}){
-                             ActionSheetView()
+            .sheet(isPresented: $postActionSheet,onDismiss: {
+                //Process data reload after Performing Request
+                vModel.dataReload()
+            }){
+                //Post Request View
+                ActionSheetView()
             }
         }
         .onAppear{
