@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-struct SheetModalView: View {
+struct ActionSheetView: View {
     /*Variables Initialization*/
     //Main View Model
     @StateObject var mainVModel = ProductListModelView()
@@ -71,6 +71,6 @@ struct SheetModalView: View {
 
 struct SheetModalView_Previews: PreviewProvider {
     static var previews: some View {
-        SheetModalView()
+        ActionSheetView()
     }
 }
