@@ -53,6 +53,7 @@ struct ActionSheetView: View {
                 
                 //Debug Test
                 print("Post REq.")
+                endView()
                 return
             }
             //Task Session For Updating
@@ -62,7 +63,10 @@ struct ActionSheetView: View {
                 
                 try await mainVModel.updateRequest(objectForUpdate: updating)
             }
-            print("Action")
+            
+            //Debug
+            print("Put REq.")
+            endView()
         }label: {
             Text("Process")
         }
