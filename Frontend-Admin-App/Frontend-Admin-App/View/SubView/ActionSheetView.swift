@@ -68,7 +68,7 @@ struct ActionSheetView: View {
             print("Put REq.")
             endView()
         }label: {
-            Text("Process")
+            Text(subVModel.actionBtn)
         }
     }
 }

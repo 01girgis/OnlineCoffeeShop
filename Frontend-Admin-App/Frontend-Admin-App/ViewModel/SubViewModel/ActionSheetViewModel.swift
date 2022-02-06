@@ -14,6 +14,10 @@ final class ActionSheetViewModel:ObservableObject{
     @Published var price:String  = ""
     @Published var description:String = ""
     
+    //set button text Label
+    var actionBtn:String {
+        myID != nil ? "UPDATE" : "POST"
+    }
     //Class Constructor Set
     init(){}
     //Class Constructor on Update Request.
