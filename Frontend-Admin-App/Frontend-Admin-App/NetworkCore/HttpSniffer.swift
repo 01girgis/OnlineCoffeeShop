@@ -65,4 +65,13 @@ class HttpSniffer {
             throw ApiErr.invalidRsponse
         }
     }
+    
+    //MARK: - Delete Request
+    func DeleteReq(at id:UUID , url:URL) async throws {
+        //Prepare Url Request
+        var urlReq = URLRequest(url: url)
+        urlReq.httpMethod = HttpMethodSelect.DELETE.rawValue
+        
+    }
+    
 }
