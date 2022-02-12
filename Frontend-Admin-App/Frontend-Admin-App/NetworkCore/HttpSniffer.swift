@@ -72,6 +72,13 @@ class HttpSniffer {
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = HttpMethodSelect.DELETE.rawValue
         
+        //Request Perform
+        let (_ , res) = try  await URLSession.shared.data(for: urlReq)
+        
+        //check Request Responding
+        guard (res as? HTTPURLResponse)?.statusCode == 200 else {
+            throw ApiErr.invalidRsponse
+        }
     }
     
 }
