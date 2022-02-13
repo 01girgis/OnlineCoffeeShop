@@ -69,4 +69,16 @@ class ProductListModelView: ObservableObject {
         //Process Request
         try await HttpSniffer.sharedSniffer.PostReq(to: urlPath, object: objectForUpdate, httpMethod: HttpMethodSelect.PUT.rawValue)
     }
+    
+    //Delete Request Func
+    func deleteRequest(at offsets: IndexSet) {
+        offsets.forEach{ i in
+            //Check Selected ID
+            guard let prodID = prods[i].id else {
+                print("no ID on Offset")
+                return
+            }
+            
+        }
+    }
 }
