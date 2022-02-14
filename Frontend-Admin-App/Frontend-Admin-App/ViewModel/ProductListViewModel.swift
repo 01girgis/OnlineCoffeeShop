@@ -88,6 +88,15 @@ class ProductListModelView: ObservableObject {
                 return
             }
             
+            //Request Performing Function
+            Task{
+                do{
+                    try await HttpSniffer.sharedSniffer.DeleteReq(at: prodID, url: delUrl)
+                }
+                catch{
+                    print("error view Model delete Req.")
+                }
+            }
             
         }
     }
