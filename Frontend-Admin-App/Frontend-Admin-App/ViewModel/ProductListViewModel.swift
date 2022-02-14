@@ -77,6 +77,15 @@ class ProductListModelView: ObservableObject {
             guard let prodID = prods[i].id else {
                 print("no ID on Offset")
                 return
+             }
+            //Delete Req Url Path
+            let url = FirstP.url + EndP.point
+            
+            
+            //check Url Validity
+            guard let delUrl = URL(string: url+"/\(prodID)") else {
+                print("error in Selecting ID for Del Request")
+                return
             }
             
         }
