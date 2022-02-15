@@ -97,7 +97,9 @@ class ProductListModelView: ObservableObject {
                     print("error view Model delete Req.")
                 }
             }
-            
         }
+        
+        //clean deleted reference
+        prods.remove(atOffsets: offsets)
     }
 }
