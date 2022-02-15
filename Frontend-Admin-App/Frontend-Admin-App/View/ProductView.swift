@@ -39,7 +39,7 @@ struct ProductView: View {
                         //Update Request View
                         ActionSheetView(subVModel: ActionSheetViewModel(updateObject: products))
                     }
-                }
+                }.onDelete(perform: vModel.deleteRequest) //Delete Process
             }
             .navigationTitle(Text("Drinks List"))
             .toolbar{
